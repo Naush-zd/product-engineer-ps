@@ -96,3 +96,19 @@ def make_harness(script: list[Outcome], **config_overrides) -> Harness:
 def make():
     """Fixture returning the harness factory."""
     return make_harness
+
+
+def pytest_configure(config):
+    """Suppress deprecation warnings from dependencies.
+    
+    - Starlette warns about using httpx with TestClient (httpx2 doesn't exist yet)
+    - anyio has deprecated BlockingPortal alias
+    """
+    config.addinivalue_line(
+        "filterwarnings",
+        "ignore:Using.*httpx.*deprecated.*:Warning:fastapi",
+    )
+    config.addinivalue_line(
+        "filterwarnings",
+        "ignore:The anyio.abc.BlockingPortal:DeprecationWarning",
+    )
