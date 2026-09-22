@@ -1,0 +1,11 @@
+meta {
+  name: Inspect evt_dead after exhaustion - expect failed_permanent
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{service_url}}/events/evt_dead
+  body: none
+  auth: none
+}

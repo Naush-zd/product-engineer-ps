@@ -1,0 +1,26 @@
+meta {
+  name: Submit evt_dup second time - expect 200 existing
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{service_url}}/events
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+    "eventId": "evt_dup11",
+    "type": "incident.created",
+    "occurredAt": "2026-09-15T10:00:00Z",
+    "payload": {
+      "incidentId": "inc_dup"
+    }
+  }
+}

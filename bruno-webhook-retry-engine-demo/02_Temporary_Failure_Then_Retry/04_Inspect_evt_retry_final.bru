@@ -1,0 +1,11 @@
+meta {
+  name: Inspect evt_retry after about 5s - expect succeeded, 3 attempts
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{service_url}}/events/evt_retry11
+  body: none
+  auth: none
+}

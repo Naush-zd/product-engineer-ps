@@ -1,0 +1,21 @@
+meta {
+  name: Reset receiver to success
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{receiver_url}}/mode
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+    "mode": "always_ok"
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Invalid event - expect 422 validation error
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{service_url}}/events
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+    "type": "incident.created",
+    "occurredAt": "2026-09-15T10:00:00Z",
+    "payload": {}
+  }
+}

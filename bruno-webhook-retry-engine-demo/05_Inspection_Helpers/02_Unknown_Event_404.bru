@@ -1,0 +1,11 @@
+meta {
+  name: Unknown event - expect 404
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{service_url}}/events/does_not_exist
+  body: none
+  auth: none
+}

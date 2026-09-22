@@ -1,0 +1,27 @@
+meta {
+  name: Submit evt_ok - expect 202 accepted
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{service_url}}/events
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+    "eventId": "evt_ok11",
+    "type": "incident.created",
+    "occurredAt": "2026-09-15T10:00:00Z",
+    "payload": {
+      "incidentId": "inc_ok",
+      "severity": "high"
+    }
+  }
+}
